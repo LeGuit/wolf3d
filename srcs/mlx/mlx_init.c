@@ -1,19 +1,23 @@
 #include "wolf3d.h"
 #include "mlx.h"
 
-static void			init_views(t_data *data, t_mlx *mlx)
+static int				ft_mlx_image_init(void *mlx_ptr, t_image *image,
+						int width,int height)
 {
-	data->v_world.xmin = -(data->ncol) / 1.3f;
-	data->v_world.xmax = (data->ncol) / 1.3f;
-	data->v_world.ymin = -(data->nrow) / 1.3f;
-	data->v_world.ymax = (data->nrow) / 1.3f;
-	mlx->v_screen.xmin = 0.f;
-	mlx->v_screen.xmax = (float)mlx->screen.width;
-	mlx->v_screen.ymin = 0.f;
-	mlx->v_screen.ymax = (float)mlx->screen.height;
+	image->ptr = mlx_new_image(mlx_ptr, width, height);
+	image->data = mlx_get_data_addr(image->ptr, &image->bpp, &image->size_line,
+									&image->endian);
+	image->width = width;
+	image->height = height;
+	return (0);
 }
 
-int					wolf_loop(t_data *data)
+static void				init_views(t_data *data, t_mlx *mlx)
+{
+
+}
+
+int						wolf_loop(t_data *data)
 {
 	ft_bzero(data->mlx->screen.data, data->mlx->screen.width
 		* data->mlx->screen.height * 4);
@@ -21,7 +25,7 @@ int					wolf_loop(t_data *data)
 	return (0);
 }
 
-void				mlx_start(t_data *data)
+void					mlx_start(t_data *data)
 {
 	t_mlx			mlx;
 
