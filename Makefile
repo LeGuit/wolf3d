@@ -24,7 +24,11 @@ OBJS_DIR =	objs
 LIBS =	libft/libft.a \
 		libmlx/libmlx.a
 
-LIST =	main
+LIST =	main \
+		hooks/call_hooks \
+		hooks/move_hooks \
+		hooks/rotate_hooks \
+		mlx/mlx_init
 
 SRCS := $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(LIST)))
 OBJS := $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(LIST)))

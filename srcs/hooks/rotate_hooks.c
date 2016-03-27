@@ -1,59 +1,47 @@
 #include "wolf3d.h"
 #include "math.h"
 
-static int			rot_lf(t_data *data)
+static int				rot_lf(t_data *data)
 {
-	if (//nowall)
-	{
 		data->eye.x += ;
 		data->eye.y += ;
-	}
 	return (0);
 }
 
-static int			rot_rg(t_data *data)
+static int				rot_rg(t_data *data)
 {
-	if (//nowall)
-	{
 		data->eye.x -= ;
 		data->eye.y -= ;
-	}
 	return (0);
 }
 
 /*
-** BONUS
+** BONUS -> can be used by mouse maybe
 */
-/*static int			straf_rg(t_data *data)
+/*static int				rot_up(t_data *data)
 {
-	if (//nowall)
-	{
 		data->eye.x += ;
 		data->eye.y += ;
-	}
 	return (0);
 }
 
-static int			straf_lf(t_data *data)
+static int					rot_dw(t_data *data)
 {
-	if (//nowall)
-	{
 		data->eye.x += ;
 		data->eye.y += ;
-	}
 	return (0);
 }
 */
 
-int					rot_hook(int key, t_data *data)
+int						rot_hook(int key, t_data *data)
 {
-	if (key == W_KEY)
-		move_fw(data);
-	else if (key == S_KEY)
-		move_bw(data);
-	else if (key == D_KEY)
-		straf_rg(data);
-	else if (key == A_KEY)
-		straf_lf(data);
+	if (key == LEFT_A)
+		rot_lf(data);
+	else if (key == RIGHT_A)
+		rot_rg(data);
+	// else if (key == UP_A)
+	// 	rot_up(data);
+	// else if (key == DOWN_A)
+	// 	rot_dw(data);
 	return (0);
 }

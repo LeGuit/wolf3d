@@ -1,6 +1,6 @@
 #include "wolf3d.h"
 
-static int			move_fw(t_data *data)
+static int				move_fw(t_data *data)
 {
 	if (//nowall)
 	{
@@ -10,7 +10,7 @@ static int			move_fw(t_data *data)
 	return (0);
 }
 
-static int			move_bw(t_data *data)
+static int				move_bw(t_data *data)
 {
 	if (//nowall)
 	{
@@ -33,7 +33,7 @@ static int			move_bw(t_data *data)
 	return (0);
 }
 
-static int			straf_lf(t_data *data)
+static int				straf_lf(t_data *data)
 {
 	if (//nowall)
 	{
@@ -44,7 +44,7 @@ static int			straf_lf(t_data *data)
 }
 */
 
-int					move_hook(int key, t_data *data)
+int						move_hook(int key, t_data *data)
 {
 	if (key == W_KEY)
 		move_fw(data);
