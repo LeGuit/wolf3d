@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/29 16:52:22 by gwoodwar          #+#    #+#             */
+/*   Updated: 2016/03/29 16:52:23 by gwoodwar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 #include "mlx.h"
 
@@ -37,7 +49,7 @@ void					mlx_start(t_data *data)
 	mlx_key_hook(mlx.win_ptr, key_hook, data);
 	mlx_mouse_hook(mlx.win_ptr, mouse_hook, data);
 	mlx_expose_hook(mlx.win_ptr, wolf_loop, data);
-	mlx_hook(mlx.win_ptr, MOTION_NOTIFY, MOTION_MASK, hover_hook, data);
+	mlx_hook(mlx.win_ptr, 2, 3, hover_hook, data);
 	mlx_loop_hook(mlx.mlx_ptr, wolf_loop, data);
 	mlx_loop(mlx.mlx_ptr);
 }

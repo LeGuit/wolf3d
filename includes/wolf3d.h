@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wolf3d.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/29 16:47:48 by gwoodwar          #+#    #+#             */
+/*   Updated: 2016/03/29 16:47:50 by gwoodwar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef _WOLF3D_H
 # define _WOLF3D_H
 
-# include "libf.h"
+# include "libft.h"
 
 # define W_WIDTH		1600
 # define W_HEIGHT		1200
@@ -22,12 +34,12 @@
 /*
 ** WALL COLORS
 */
-# define NORTH
-# define SOUTH
-# define EST
-# define WEST
-# define FLOOR
-# define SKY
+# define NORTH			0xFF0000
+# define SOUTH			0x0000FF
+# define EST			0x00FF00
+# define WEST			0xFFFF00
+# define FLOOR			0x000000
+# define SKY			0x99FFFF
 
 typedef struct			s_vec2d
 {
@@ -41,6 +53,13 @@ typedef struct			s_eye
 	t_vec2d				dir;
 	t_vec2d				plane;
 }						t_eye;
+
+typedef struct		s_mlx
+{
+	void			*mlx_ptr;
+	void			*win_ptr;
+	t_image			screen;
+}					t_mlx;
 
 typedef struct			s_data
 {
@@ -64,5 +83,5 @@ void					mlx_start(t_data *data);
 /*
 ** ERROR
 */
-void					error_input(void)
-
+void					error_input(void);
+#endif

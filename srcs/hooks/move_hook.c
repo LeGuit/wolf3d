@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_hook.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/29 16:51:14 by gwoodwar          #+#    #+#             */
+/*   Updated: 2016/03/29 16:51:44 by gwoodwar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
 static int				move_fw(t_data *data)
 {
-	if (//nowall)
+	if (/*nowall*/)
 	{
 		data->eye.x += ;
 		data->eye.y += ;
@@ -12,7 +24,7 @@ static int				move_fw(t_data *data)
 
 static int				move_bw(t_data *data)
 {
-	if (//nowall)
+	if (/*nowall*/)
 	{
 		data->eye.x -= ;
 		data->eye.y -= ;
