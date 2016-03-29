@@ -31,7 +31,7 @@ void					mlx_start(t_data *data)
 
 	data->mlx = &mlx;
 	mlx.mlx_ptr = mlx_init();
-	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, W_WIDTH, W_HEIGHT, data->name);
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, W_WIDTH, W_HEIGHT, "wolf3d");
 	ft_mlx_image_init(mlx.mlx_ptr, &mlx.screen, W_WIDTH, W_HEIGHT);
 	init_views(data);
 	mlx_key_hook(mlx.win_ptr, key_hook, data);

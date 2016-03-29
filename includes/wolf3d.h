@@ -19,6 +19,16 @@
 # define MINUS			78
 # define RETURN			36
 
+/*
+** WALL COLORS
+*/
+# define NORTH
+# define SOUTH
+# define EST
+# define WEST
+# define FLOOR
+# define SKY
+
 typedef struct			s_vec2d
 {
 	double				x;
@@ -35,7 +45,8 @@ typedef struct			s_eye
 typedef struct			s_data
 {
 	t_eye				eye;
-	t_mlx				*mlx;	
+	t_mlx				*mlx;
+	int					texture[6]; //N->S->E->O
 }						t_data;
 
 /*
@@ -50,3 +61,8 @@ int						move_hook(int key, t_data *data);
 ** MLX
 */
 void					mlx_start(t_data *data);
+/*
+** ERROR
+*/
+void					error_input(void)
+
