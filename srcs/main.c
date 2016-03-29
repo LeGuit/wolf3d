@@ -24,12 +24,12 @@ static void				init_texture(t_data *data)
 
 static void				init_data(t_data *data)
 {
-	data->eye->pos.x = 22;
-	data->eye->pos.y = 12;
-	data->eye->dir.x = -1;
-	data->eye->pos.x = 22;
-	data->eye->plane.x = 0;
-	data->eye->plane.x = 0.66;
+	data->eye.pos.x = 22;
+	data->eye.pos.y = 12;
+	data->eye.dir.x = -1;
+	data->eye.pos.x = 22;
+	data->eye.plane.x = 0;
+	data->eye.plane.x = 0.66;
 
 	init_texture(data);
 }

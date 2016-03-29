@@ -47,6 +47,12 @@ typedef struct			s_vec2d
 	double				y;
 }						t_vec2d;
 
+typedef struct			s_vec2i
+{
+	int					x;
+	int					y;
+}						t_vec2i;
+
 typedef struct			s_eye
 {
 	t_vec2d				pos;
@@ -54,12 +60,29 @@ typedef struct			s_eye
 	t_vec2d				plane;
 }						t_eye;
 
-typedef struct		s_mlx
+typedef struct			s_ray
 {
-	void			*mlx_ptr;
-	void			*win_ptr;
-	t_image			screen;
-}					t_mlx;
+	double				camera;
+	t_vec2d				raypos;
+	t_vec2d				raydir;
+
+}						t_ray;
+
+typedef struct			s_calcul
+{
+	t_vec2i				map;
+	t_vec2i				step;
+	t_vec2d				side;
+	t_vec2d				delta;
+
+}						t_calcul;
+
+typedef struct			s_mlx
+{
+	void				*mlx_ptr;
+	void				*win_ptr;
+	t_image				screen;
+}						t_mlx;
 
 typedef struct			s_data
 {

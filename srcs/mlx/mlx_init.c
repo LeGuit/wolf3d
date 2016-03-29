@@ -24,16 +24,11 @@ static int				ft_mlx_image_init(void *mlx_ptr, t_image *image,
 	return (0);
 }
 
-static void				init_views(t_data *data, t_mlx *mlx)
-{
-
-}
-
 int						wolf_loop(t_data *data)
 {
 	ft_bzero(data->mlx->screen.data, data->mlx->screen.width
 		* data->mlx->screen.height * 4);
-	draw(data, data->mlx);
+	draw(data);
 	return (0);
 }
 
