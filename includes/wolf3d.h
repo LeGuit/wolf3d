@@ -104,6 +104,11 @@ int						move_hook(int key, t_data *data);
 */
 void					mlx_start(t_data *data);
 /*
+** INIT
+*/
+void					get_ray(int x, t_ray *ray);
+void					get_calcul(t_calcul *c, t_ray *r);
+/*
 ** ERROR
 */
 void					error_input(void);
