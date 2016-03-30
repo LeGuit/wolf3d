@@ -73,6 +73,9 @@ typedef struct			s_calcul
 	t_vec2i				map;
 	t_vec2i				step;
 	t_vec2d				side;
+	int					hitside;
+	int					hit;
+	double				nwdist;
 	t_vec2d				delta;
 
 }						t_calcul;
@@ -104,10 +107,13 @@ int						move_hook(int key, t_data *data);
 */
 void					mlx_start(t_data *data);
 /*
-** INIT
+** CALCUL
 */
 void					get_ray(int x, t_ray *ray);
 void					get_calcul(t_calcul *c, t_ray *r);
+void					get_steps(t_calcul *c, t_ray *r);
+void					dda(t_calcul *c, t_data *d);
+void					get_normewall(t_calcul *c, t_ray *r);
 /*
 ** ERROR
 */

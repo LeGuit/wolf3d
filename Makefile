@@ -29,7 +29,10 @@ LIST =	main \
 		hooks/move_hooks \
 		hooks/rotate_hooks \
 		mlx/mlx_init \
-		error/error
+		error/error \
+		draw/dda \
+		draw/draw \
+		draw/init
 
 SRCS := $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(LIST)))
 OBJS := $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(LIST)))
