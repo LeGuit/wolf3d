@@ -17,7 +17,6 @@ void					dda(t_calcul *c, t_data *d)
 {
 	while (c->hit == 0)
 	{
-		ft_printf("uo");
 		if (c->side.x < c->side.y)
 		{
 			c->side.x += c->delta.x;
@@ -30,7 +29,7 @@ void					dda(t_calcul *c, t_data *d)
 			c->map.y += c->step.y;
 			c->hitside = 1;
 		}
-		if (ft_vect_at(&d->vertices, c->map.x + c->map.y * d->ncol))
+		if (d->map[c->map.x][c->map.y] > 0)
 			c->hit = 1;
 	}
 }

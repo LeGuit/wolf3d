@@ -30,8 +30,8 @@ LIST =	main \
 		draw/dda \
 		draw/draw \
 		draw/get_calc \
-		parse/get_map
-		#hooks/call_hooks \
+		parse/get_map \
+		hooks/call_hooks 
 		#hooks/move_hooks \
 		#hooks/rotate_hooks 		
 

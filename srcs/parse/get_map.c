@@ -13,35 +13,49 @@
 #include "wolf3d.h"
 #include <fcntl.h>
 
-static void				get_nbrs(char *line, t_data *data)
+static void				print_map(t_data *d)
 {
 	int					i;
-	t_vec3i				v;
-	char				*tmp_line;
+	int					j;
 
 	i = 0;
+	while (i < d->ncol)
+	{
+		j = 0;
+		while (j < d->ncol)
+		{
+			ft_printf("%d ", d->map[i][j]);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
+}
+
+static void				get_nbrs(char *line, t_data *d)
+{
+	int					i;
+	char				*tmp_line;
+	i = 0;
 	tmp_line = line;
-	while (i < data->ncol)
+	while (i < d->ncol)
 	{
 		while (*tmp_line == ' ' && *tmp_line)
 			tmp_line++;
-		v.x = i;
-		v.y = data->nrow;
-		v.z = (ft_atoi(tmp_line)) / 10.f;
-		ft_vect_push_back(&data->vertices, &v);
-		while (ft_isdigit(*tmp_line) || *tmp_line == '-')
+		d->map[d->nrow][i] = (ft_atoi(tmp_line));
+		while (ft_isdigit(*tmp_line))
 			tmp_line++;
 		i++;
 	}
 	free(line);
 }
 
-static int				check_line(char *line, t_data *data)
+static int				check_line(char *line, t_data *d)
 {
 	int					i;
 
 	i = 0;
-	if (((int)ft_nb_words(line, ' ') != data->ncol))
+	if (((int)ft_nb_words(line, ' ') != d->ncol))
 		return (2);
 	while (line[i])
 	{
@@ -54,7 +68,25 @@ static int				check_line(char *line, t_data *data)
 	return (0);
 }
 
-void					get_map(char *av, t_data *data)
+static void				malloc_map(t_data *d)
+{
+	int					it;
+
+	d->map = (int **)malloc(sizeof(int *) * d->ncol);
+	if (!d->map)
+		error_malloc();
+	it = 0;
+	while (it < d->ncol)
+	{
+		d->map[it] = (int *)malloc(sizeof(int) * d->ncol);
+		if (!d->map[it])
+			error_malloc();
+		it++;
+	}
+	d->flag = 1;
+}
+
+void					get_map(char *av, t_data *d)
 {
 	int					fd;
 	char				*line;
@@ -64,12 +96,15 @@ void					get_map(char *av, t_data *data)
 		error_open();
 	while ((ret = get_next_line(fd, &line) > 0))
 	{
-		if (data->nrow == 0)
-			data->ncol = ft_nb_words(line, ' ');
-		data->nrow++;
-		if ((ret = check_line(line, data)))
+		if (d->nrow == 0)
+			d->ncol = ft_nb_words(line, ' ');
+		if (d->flag == 0)
+			malloc_map(d);
+		if ((ret = check_line(line, d)))
 			error_file(ret);
-		get_nbrs(line, data);
+		get_nbrs(line, d);
+		d->nrow++;
 	}
 	close(fd);
+	print_map(d);
 }

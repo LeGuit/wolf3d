@@ -12,28 +12,28 @@
 
 #include "wolf3d.h"
 
-static void				init_texture(t_data *data)
+static void				init_texture(t_data *d)
 {
-	data->texture[0] = NORTH;
-	data->texture[1] = SOUTH;
-	data->texture[2] = EST;
-	data->texture[3] = WEST;
-	// data->texture[4] = FLOOR;
-	// data->texture[5] = SKY;
+	d->texture[0] = NORTH;
+	d->texture[1] = SOUTH;
+	d->texture[2] = EST;
+	d->texture[3] = WEST;
+	// d->texture[4] = FLOOR;
+	// d->texture[5] = SKY;
 }
 
-static void				init_data(t_data *data)
+static void				init_data(t_data *d)
 {
-	data->eye.pos.x = 22;
-	data->eye.pos.y = 12;
-	data->eye.dir.x = -1;
-	data->eye.pos.x = 22;
-	data->eye.plane.x = 0;
-	data->eye.plane.x = 0.66;
-	data->ncol = 0;
-	data->nrow = 0;
-	data->vertices = VECT_INI(t_vec3i);
-	init_texture(data);
+	d->eye.pos.x = 22;
+	d->eye.pos.y = 12;
+	d->eye.dir.x = -1;
+	d->eye.pos.x = 22;
+	d->eye.plane.x = 0;
+	d->eye.plane.x = 0.66;
+	d->ncol = 0;
+	d->nrow = 0;
+	d->flag = 0;
+	init_texture(d);
 }
 
 int						main(int ac, char **av)

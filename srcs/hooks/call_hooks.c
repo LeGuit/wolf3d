@@ -18,23 +18,24 @@ static void				key_esc(void)
 	exit(0);
 }
 
-int						hover_hook(int x, int y, t_data *data)
-{
-	return (0);
-}
+// int						hover_hook(int x, int y, t_data *data)
+// {
+// 	return (0);
+// }
 
 int						key_hook(int key, t_data *data)
 {
+	(void)data;
 	if (key == ESC)
 		key_esc();
-	else if (key == W_KEY || key == A_KEY || key == D_KEY || key == S_KEY)
-		move_hook(key, data);
-	else if (key == LEFT_A || key == RIGHT_A || key == UP_A || key == DOWN_A)
-		rot_hook(key, data);
+	// else if (key == W_KEY || key == A_KEY || key == D_KEY || key == S_KEY)
+	// 	move_hook(key, data);
+	// else if (key == LEFT_A || key == RIGHT_A || key == UP_A || key == DOWN_A)
+	// 	rot_hook(key, data);
 	return (0);
 }
 
-int						mouse_hook(int button, int x, int y, void *data)
-{
-	return (0);
-}
+// int						mouse_hook(int button, int x, int y, void *data)
+// {
+// 	return (0);
+// }
