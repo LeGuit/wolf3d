@@ -18,3 +18,10 @@ void					error_input(void)
 	ft_putendl_fd("usage: ./wolf3d [no arguments]", 2);
 	exit(0);
 }
+
+void					error_open(void)
+{
+	ft_putendl_fd("fdf: open fail!", 2);
+	exit(0);
+}
+
