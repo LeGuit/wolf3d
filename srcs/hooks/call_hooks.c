@@ -34,7 +34,6 @@ int						key_hook(int key, t_data *data)
 	return (0);
 }
 
-
 int						mouse_hook(int button, int x, int y, void *data)
 {
 	return (0);

@@ -25,14 +25,14 @@ LIBS =	libft/libft.a \
 		libmlx/libmlx.a
 
 LIST =	main \
-		hooks/call_hooks \
-		hooks/move_hooks \
-		hooks/rotate_hooks \
 		mlx/mlx_init \
 		error/error \
 		draw/dda \
 		draw/draw \
-		draw/init
+		draw/get_calc
+		#hooks/call_hooks \
+		#hooks/move_hooks \
+		#hooks/rotate_hooks 		
 
 SRCS := $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(LIST)))
 OBJS := $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(LIST)))

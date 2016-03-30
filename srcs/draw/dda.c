@@ -21,15 +21,15 @@ void					dda(t_calcul *c, t_data *d)
 		{
 			c->side.x += c->delta.x;
 			c->map.x += c->step.x;
-			hitside = 0;
+			c->hitside = 0;
 		}
 		else
 		{
 			c->side.y += c->delta.y;
 			c->map.y += c->step.y;
-			hitside = 1;
+			c->hitside = 1;
 		}
-		if (d->wmap[c->map.x][c->map.y])//add || hors map
+		if (d->wmap[c->map.x][c->map.y])
 			c->hit = 1;
 	}
 }

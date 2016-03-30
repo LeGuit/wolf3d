@@ -13,20 +13,20 @@
 #include "wolf3d.h"
 #include "math.h"
 
-void					get_ray(int x, t_ray *r)
+void					get_ray(int x, t_ray *r, t_data *d)
 {
 	r->camera = 2 * x / (double)W_WIDTH - 1;
-	r->raypos = (t_vec2d)data->pos;
-	r->raydir.x = data->dir.x + data->plane.x * r->camera;
-	r->raydir.y = data->dir.y + data->plane.y * r->camera;
+	r->raypos = (t_vec2d)d->eye.pos;
+	r->raydir.x = d->eye.dir.x + d->eye.plane.x * r->camera;
+	r->raydir.y = d->eye.dir.y + d->eye.plane.y * r->camera;
 }
 
 void					get_calcul(t_calcul *c, t_ray *r)
 {
 	c->map.x = (int)r->raypos.x;
 	c->map.y = (int)r->raypos.y;
-	c->delta.x = sqrt(1 + pow(r->dir.y, 2) / pow(r->dir.x, 2));
-	c->delta.y = sqrt(1 + pow(r->dir.x, 2) / pow(r->dir.y, 2));
+	c->delta.x = sqrt(1 + pow(r->raydir.y, 2) / pow(r->raydir.x, 2));
+	c->delta.y = sqrt(1 + pow(r->raydir.x, 2) / pow(r->raydir.y, 2));
 	c->hit = 0;
 }
 
@@ -35,21 +35,32 @@ void					get_steps(t_calcul *c, t_ray *r)
 	if (r->raydir.x < 0)
 		c->side.x = (r->raypos.x - c->map.x) * c->delta.x;
 	else
-		c->side.x = (r->map.x + 1.0 - r->raypos.x) * c->delta.x;
-	r->raydir.x < 0 ? c->step.x = -1 : c->step.x = 1;
+		c->side.x = (c->map.x + 1.0 - r->raypos.x) * c->delta.x;
+	c->step.x = r->raydir.x < 0 ? -1 : 1;
 	if (r->raydir.y < 0)
 		c->side.y = (r->raypos.y - c->map.y) * c->delta.y;
 	else
-		c->side.y = (r->map.y + 1.0 - r->raypos.y) * c->delta.y;
-	r->raydir.y < 0 ? c->step.y = -1 : c->step.y = 1;
+		c->side.y = (c->map.y + 1.0 - r->raypos.y) * c->delta.y;
+	c->step.y = r->raydir.y < 0 ? -1 : 1;
 }
 
-void					get_normewall(t_calcul *c, t_ray *r)
+void					get_normedist(t_calcul *c, t_ray *r)
 {
-	if (calcul.hitside == 0)
-		nwdist = calcul.map.x - ray.raypos.x +
-		(1 - calcul.step.x) / 2) / ray.raydir.x;
+	if (c->hitside == 0)
+		c->nwdist = (c->map.x - r->raypos.x +
+		(1 - c->step.x) / 2) / r->raydir.x;
 	else
-		nwdist = calcul.map.y - ray.raypos.y +
-		(1 - calcul.step.y) / 2) / ray.raydir.y;
+		c->nwdist = (c->map.y - r->raypos.y +
+		(1 - c->step.y) / 2) / r->raydir.y;
+}
+
+void					get_draw(t_calcul *c)
+{
+	c->lheight = (int)(W_HEIGHT / c->nwdist);
+	c->dstart = -c->lheight / 2 + W_HEIGHT / 2;
+	if (c->dstart < 0)
+		c->dstart = 0;
+	c->dend = c->lheight / 2 + W_HEIGHT / 2;
+	if (c->dend < 0)
+		c->dend = W_HEIGHT - 1;
 }

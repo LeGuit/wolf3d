@@ -11,24 +11,31 @@
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+#include "mlx.h"
 
-void				draw(t_data *data)
+void					draw(t_data *data)
 {
-	t_ray			ray;
-	t_calcul		calcul;
+	t_ray				ray;
+	t_calcul			calcul;
+	t_vec3i				v;
 
-	while (x < W_WIDTH)
+	v.x = 0;
+	while (v.x < W_WIDTH)
 	{
-		get_ray(x, &ray, data);
+		get_ray(v.x, &ray, data);
 		get_calcul(&calcul, &ray);
 		get_steps(&calcul, &ray);
 		dda(&calcul, data);
 		get_normedist(&calcul, &ray);
-		if (calcul.hitside == 0)
-			nwdist = calcul.map.x - ray.raypos.x +
-			(1 - calcul.step.x) / 2) / ray.raydir.x;
-		else
-			nwdist = calcul.map.y - ray.raypos.y + (1 - calcul.step.y) / 2) / ray.raydir.y;
-		x++;
+		v.x++;
+		v.z = NORTH;
+		v.y = calcul.dstart;
+		while (v.y < calcul.dend)
+		{
+			ft_put_pix_to_img(&v, &data->mlx->screen);
+			v.y++;
+		}
 	}
+	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
+				data->mlx->screen.ptr, 0, 0);
 }

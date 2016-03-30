@@ -76,6 +76,9 @@ typedef struct			s_calcul
 	int					hitside;
 	int					hit;
 	double				nwdist;
+	int					lheight;
+	int					dstart;
+	int					dend;
 	t_vec2d				delta;
 
 }						t_calcul;
@@ -91,29 +94,32 @@ typedef struct			s_data
 {
 	t_eye				eye;
 	t_mlx				*mlx;
-	int					texture[6]; //N->S->E->O
+	int					**wmap[24][24];
+	int					texture[6];
 }						t_data;
 
 /*
 ** HOOKS
 */
-int						hover_hook(int x, int y, t_data *data);
-int						key_hook(int key, t_data *data);
-int						mouse_hook(int button, int x, int y, void *data);
-int						rot_hook(int key, t_data *data);
-int						move_hook(int key, t_data *data);
+// int						hover_hook(int x, int y, t_data *data);
+// int						key_hook(int key, t_data *data);
+// int						mouse_hook(int button, int x, int y, void *data);
+// int						rot_hook(int key, t_data *data);
+// int						move_hook(int key, t_data *data);
 /*
 ** MLX
 */
 void					mlx_start(t_data *data);
+void					draw(t_data *data);
 /*
 ** CALCUL
 */
-void					get_ray(int x, t_ray *ray);
+void					get_ray(int x, t_ray *r, t_data *d);
 void					get_calcul(t_calcul *c, t_ray *r);
 void					get_steps(t_calcul *c, t_ray *r);
 void					dda(t_calcul *c, t_data *d);
-void					get_normewall(t_calcul *c, t_ray *r);
+void					get_normedist(t_calcul *c, t_ray *r);
+void					get_draw(t_calcul *c);
 /*
 ** ERROR
 */

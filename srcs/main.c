@@ -30,7 +30,6 @@ static void				init_data(t_data *data)
 	data->eye.pos.x = 22;
 	data->eye.plane.x = 0;
 	data->eye.plane.x = 0.66;
-
 	init_texture(data);
 }
 
