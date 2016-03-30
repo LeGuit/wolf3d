@@ -13,11 +13,11 @@
 #include "wolf3d.h"
 #include <fcntl.h>
 
-static void		get_nbrs(char *line, t_data *data)
+static void				get_nbrs(char *line, t_data *data)
 {
-	int			i;
-	t_vec3i		v;
-	char		*tmp_line;
+	int					i;
+	t_vec3i				v;
+	char				*tmp_line;
 
 	i = 0;
 	tmp_line = line;
@@ -25,9 +25,9 @@ static void		get_nbrs(char *line, t_data *data)
 	{
 		while (*tmp_line == ' ' && *tmp_line)
 			tmp_line++;
-		v.pos.x = i;
-		v.pos.y = data->nrow;
-		v.pos.z = (ft_atoi(tmp_line)) / 10.f;
+		v.x = i;
+		v.y = data->nrow;
+		v.z = (ft_atoi(tmp_line)) / 10.f;
 		ft_vect_push_back(&data->vertices, &v);
 		while (ft_isdigit(*tmp_line) || *tmp_line == '-')
 			tmp_line++;
@@ -36,9 +36,9 @@ static void		get_nbrs(char *line, t_data *data)
 	free(line);
 }
 
-static int		check_line(char *line, t_data *data)
+static int				check_line(char *line, t_data *data)
 {
-	int			i;
+	int					i;
 
 	i = 0;
 	if (((int)ft_nb_words(line, ' ') != data->ncol))
@@ -54,11 +54,11 @@ static int		check_line(char *line, t_data *data)
 	return (0);
 }
 
-void			get_file(char *av, t_data *data)
+void					get_map(char *av, t_data *data)
 {
-	int			fd;
-	char		*line;
-	int			ret;
+	int					fd;
+	char				*line;
+	int					ret;
 
 	if ((fd = open(av, O_RDONLY)) == -1)
 		error_open();

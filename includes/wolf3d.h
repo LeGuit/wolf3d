@@ -92,11 +92,15 @@ typedef struct			s_mlx
 
 typedef struct			s_data
 {
+	t_vect				vertices;
 	t_eye				eye;
 	t_mlx				*mlx;
-	int					wmap[24][24];
+	int					nrow;
+	int					ncol;
 	int					texture[6];
 }						t_data;
+
+void					get_map(char *av, t_data *data);
 
 /*
 ** HOOKS
@@ -124,4 +128,6 @@ void					get_draw(t_calcul *c);
 ** ERROR
 */
 void					error_input(void);
+void					error_file(int error);
+void					error_open(void);
 #endif

@@ -30,6 +30,9 @@ static void				init_data(t_data *data)
 	data->eye.pos.x = 22;
 	data->eye.plane.x = 0;
 	data->eye.plane.x = 0.66;
+	data->ncol = 0;
+	data->nrow = 0;
+	data->vertices = VECT_INI(t_vec3i);
 	init_texture(data);
 }
 
@@ -37,10 +40,10 @@ int						main(int ac, char **av)
 {
 	t_data				data;
 
-	(void)av;
-	if (ac != 1)
+	if (ac != 2)
 		error_input();
 	init_data(&data);
+	get_map(av[1], &data);
 	mlx_start(&data);
 	return (0);
 }

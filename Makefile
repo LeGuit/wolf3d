@@ -29,7 +29,8 @@ LIST =	main \
 		error/error \
 		draw/dda \
 		draw/draw \
-		draw/get_calc
+		draw/get_calc \
+		parse/get_map
 		#hooks/call_hooks \
 		#hooks/move_hooks \
 		#hooks/rotate_hooks 		

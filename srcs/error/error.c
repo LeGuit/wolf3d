@@ -25,3 +25,11 @@ void					error_open(void)
 	exit(0);
 }
 
+void					error_file(int error)
+{
+	if (error == 2)
+		ft_putendl_fd("fdf: nbcol are not the same!", 2);
+	else if (error == 1)
+		ft_putendl_fd("fdf: wrong char in the file!", 2);
+	exit(0);
+}
