@@ -94,7 +94,7 @@ typedef struct			s_data
 {
 	t_eye				eye;
 	t_mlx				*mlx;
-	int					**wmap[24][24];
+	int					wmap[24][24];
 	int					texture[6];
 }						t_data;
 
