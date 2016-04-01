@@ -111,7 +111,7 @@ void					get_map(char *av, t_data *data);
 // int						hover_hook(int x, int y, t_data *data);
 int						key_hook(int key, t_data *data);
 // int						mouse_hook(int button, int x, int y, void *data);
-// int						rot_hook(int key, t_data *data);
+int						rot_hook(int key, t_data *data);
 int						move_hook(int key, t_data *data);
 /*
 ** MLX
