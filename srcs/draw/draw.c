@@ -12,7 +12,7 @@
 
 #include "wolf3d.h"
 #include "mlx.h"
-
+#include <stdio.h>
 void					draw(t_data *data)
 {
 	t_ray				ray;
@@ -27,11 +27,12 @@ void					draw(t_data *data)
 		get_steps(&calcul, &ray);
 		dda(&calcul, data);
 		get_normedist(&calcul, &ray);
+		get_draw(&calcul);
 		v.z = NORTH;
-		v.y = calcul.dend;
-		ft_printf("raypx: %d raypy: %d raydx: %d raydy: %d\n", ray.raypos.x, ray.raypos.y, ray.raydir.x, ray.raydir.y);
-		ft_printf("start:%d\tend:%d\n", calcul.dstart, calcul.dend);
-		while (v.y < calcul.dstart)
+		v.y = calcul.dstart;
+		// printf("raypx: %f raypy: %f raydx: %f raydy: %f\n", ray.raypos.x, ray.raypos.y, ray.raydir.x, ray.raydir.y);
+		// printf("start:%d\tend:%d\n", calcul.dstart, calcul.dend);
+		while (v.y < calcul.dend)
 		{
 			ft_put_pix_to_img(&v, &data->mlx->screen);
 			v.y++;

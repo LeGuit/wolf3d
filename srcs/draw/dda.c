@@ -12,6 +12,7 @@
 
 #include "wolf3d.h"
 #include "math.h"
+#include <stdio.h>
 
 void					dda(t_calcul *c, t_data *d)
 {
@@ -29,7 +30,11 @@ void					dda(t_calcul *c, t_data *d)
 			c->map.y += c->step.y;
 			c->hitside = 1;
 		}
+	// printf("map+step: %f %f\n", c->side.x, c->side.y);
 		if (d->map[c->map.x][c->map.y] > 0)
+		{
+			// printf("maphit: %d %d\n", c->map.x, c->map.y);
 			c->hit = 1;
+		}
 	}
 }

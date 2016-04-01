@@ -26,8 +26,6 @@ static void				init_data(t_data *d)
 {
 	d->eye.pos.x = 22;
 	d->eye.pos.y = 12;
-	ft_printf("%d %d\n", d->eye.pos.x, d->eye.pos.y);
-	
 	d->eye.dir.x = -1;
 	d->eye.dir.y = 0;
 	d->eye.plane.x = 0;

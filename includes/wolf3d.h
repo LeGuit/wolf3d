@@ -17,6 +17,8 @@
 
 # define W_WIDTH		1600
 # define W_HEIGHT		1200
+# define SPEED			0.2
+
 
 # define ESC			53
 # define LEFT_A			123

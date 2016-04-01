@@ -12,12 +12,12 @@
 
 #include "wolf3d.h"
 
-static int				move_fw(t_data *data)
+static int				move_fw(t_data *d)
 {
-	if (/*nowall*/)
+	if (d)
 	{
-		data->eye.x += ;
-		data->eye.y += ;
+		d->eye.x += ;
+		d->eye.y += ;
 	}
 	return (0);
 }
