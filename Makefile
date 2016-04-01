@@ -31,8 +31,8 @@ LIST =	main \
 		draw/draw \
 		draw/get_calc \
 		parse/get_map \
-		hooks/call_hooks 
-		#hooks/move_hooks \
+		hooks/call_hooks \
+		hooks/move_hook 
 		#hooks/rotate_hooks 		
 
 SRCS := $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(LIST)))
