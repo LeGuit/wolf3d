@@ -40,7 +40,7 @@
 # define SOUTH			0x0000FF
 # define EST			0x00FF00
 # define WEST			0xFFFF00
-# define FLOOR			0x000000
+# define FLOOR			0x88421D
 # define SKY			0x99FFFF
 
 typedef struct			s_vec2d
