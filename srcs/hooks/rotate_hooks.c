@@ -13,14 +13,21 @@
 #include "wolf3d.h"
 #include "math.h"
 
-static int				rot_lf(t_data *data)
+static int				rot_lf(t_data *d)
 {
-		data->eye.x += ;
-		data->eye.y += ;
+	double				tmp;
+
+	tmp = d->eye.dir.x;
+	d->eye.dir.x = d->eye.dir.x * cos(-SPEED) - d->eye.dir.y * sin(-SPEED);
+	d->eye.dir.y = tmp * sin(-SPEED) - d->eye.dir.y * cos(-SPEED);
+	tmp = d-eye.plane.x;
+	d->eye.plane.x = d->eye.plane.x * cos(-SPEED)
+		- d->eye.plane.y * sin(-SPEED);
+	d->eye.plane.y = tmp * sin(-SPEED) - d->eye.plane.y * cos(-SPEED);
 	return (0);
 }
 
-static int				rot_rg(t_data *data)
+static int				rot_rg(t_data *d)
 {
 		data->eye.x -= ;
 		data->eye.y -= ;

@@ -30,8 +30,8 @@ int						key_hook(int key, t_data *data)
 		key_esc();
 	else if (key == W_KEY || key == A_KEY || key == D_KEY || key == S_KEY)
 		move_hook(key, data);
-	// else if (key == LEFT_A || key == RIGHT_A || key == UP_A || key == DOWN_A)
-	// 	rot_hook(key, data);
+	else if (key == LEFT_A || key == RIGHT_A || key == UP_A || key == DOWN_A)
+		rot_hook(key, data);
 	return (0);
 }
 
