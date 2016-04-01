@@ -27,16 +27,16 @@ void					draw(t_data *data)
 		get_steps(&calcul, &ray);
 		dda(&calcul, data);
 		get_normedist(&calcul, &ray);
-			ft_printf("YO%d ", v.x);
-		v.x++;
 		v.z = NORTH;
 		v.y = calcul.dend;
+		ft_printf("raypx: %d raypy: %d raydx: %d raydy: %d\n", ray.raypos.x, ray.raypos.y, ray.raydir.x, ray.raydir.y);
 		ft_printf("start:%d\tend:%d\n", calcul.dstart, calcul.dend);
 		while (v.y < calcul.dstart)
 		{
 			ft_put_pix_to_img(&v, &data->mlx->screen);
 			v.y++;
 		}
+		v.x++;
 	}
 	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
 				data->mlx->screen.ptr, 0, 0);

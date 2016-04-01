@@ -15,8 +15,12 @@
 
 void					get_ray(int x, t_ray *r, t_data *d)
 {
-	r->camera = 2 * x / (double)W_WIDTH - 1;
-	r->raypos = (t_vec2d)d->eye.pos;
+	r->camera = 2 * (double)x / (double)W_WIDTH - 1;
+	r->raypos.x = d->eye.pos.x;
+	r->raypos.y = d->eye.pos.y;
+	ft_printf("%d %d\n", r->raypos.x, r->raypos.y);
+	ft_printf("%d %d\n", d->eye.pos.x, d->eye.pos.y);
+	exit(0);
 	r->raydir.x = d->eye.dir.x + d->eye.plane.x * r->camera;
 	r->raydir.y = d->eye.dir.y + d->eye.plane.y * r->camera;
 }
@@ -57,7 +61,7 @@ void					get_normedist(t_calcul *c, t_ray *r)
 void					get_draw(t_calcul *c)
 {
 	c->lheight = (int)(W_HEIGHT / c->nwdist);
-	c->dstart = -c->lheight / 2 + W_HEIGHT / 2;
+	c->dstart = -(c->lheight) / 2 + W_HEIGHT / 2;
 	if (c->dstart < 0)
 		c->dstart = 0;
 	c->dend = c->lheight / 2 + W_HEIGHT / 2;
