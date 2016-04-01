@@ -36,6 +36,7 @@ static void				get_nbrs(char *line, t_data *d)
 {
 	int					i;
 	char				*tmp_line;
+
 	i = 0;
 	tmp_line = line;
 	while (i < d->ncol)

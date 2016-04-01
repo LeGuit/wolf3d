@@ -12,7 +12,19 @@
 
 #include "wolf3d.h"
 #include "mlx.h"
-#include <stdio.h>
+
+// static void				get_color(t_data *d, t_calcul *c, t_vec3i *v)
+// {
+// 	v->z = NORTH;
+// 	v->y = c->dstart;
+// 	while (v->y < c->dend)
+// 	{
+// 		ft_put_pix_to_img(v, &d->mlx->screen);
+// 		v->y++;
+// 	}
+// }
+
+
 void					draw(t_data *data)
 {
 	t_ray				ray;
@@ -28,10 +40,9 @@ void					draw(t_data *data)
 		dda(&calcul, data);
 		get_normedist(&calcul, &ray);
 		get_draw(&calcul);
+		// get_color(data, &calcul, &v);
 		v.z = NORTH;
 		v.y = calcul.dstart;
-		// printf("raypx: %f raypy: %f raydx: %f raydy: %f\n", ray.raypos.x, ray.raypos.y, ray.raydir.x, ray.raydir.y);
-		// printf("start:%d\tend:%d\n", calcul.dstart, calcul.dend);
 		while (v.y < calcul.dend)
 		{
 			ft_put_pix_to_img(&v, &data->mlx->screen);
