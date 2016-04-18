@@ -57,7 +57,7 @@ void					get_normedist(t_calcul *c, t_ray *r)
 
 void					get_draw(t_calcul *c)
 {
-	c->lheight = (int)(W_HEIGHT / c->nwdist);
+	c->lheight = (int)MIN(W_HEIGHT / c->nwdist, W_HEIGHT);
 	c->dstart = -(c->lheight) / 2 + W_HEIGHT / 2;
 	if (c->dstart < 0)
 		c->dstart = 0;
