@@ -37,7 +37,10 @@ static void				draw_sky(t_data *d, t_calcul *c, t_vec3i *v)
 
 static void				get_color(t_data *d, t_calcul *c, t_vec3i *v)
 {
-	v->z = NORTH;
+	if (c->hitside == 1)
+		v->z = WEST;
+	else
+		v->z = NORTH;
 	v->y = c->dstart;
 	while (v->y < c->dend)
 	{

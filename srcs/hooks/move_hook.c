@@ -30,17 +30,21 @@ static int				move_bw(t_data *d)
 	return (0);
 }
 
-static int			straf_rg(t_data *d)
+static int			straf_lf(t_data *d)
 {
-	d->eye.pos.x -= d->eye.dir.y * SPEED;
-	d->eye.pos.y += d->eye.dir.x * SPEED;
+	if (!d->map[(int)(d->eye.pos.x - d->eye.dir.y * SPEED)][(int)d->eye.pos.y])
+		d->eye.pos.x -= d->eye.dir.y * SPEED;
+	if (!d->map[(int)d->eye.pos.x][(int)(d->eye.pos.y + d->eye.dir.x * SPEED)])
+		d->eye.pos.y += d->eye.dir.x * SPEED;
 	return (0);
 }
 
-static int				straf_lf(t_data *d)
+static int				straf_rg(t_data *d)
 {
-	d->eye.pos.x += d->eye.dir.y * SPEED;
-	d->eye.pos.y -= d->eye.dir.x * SPEED;
+	if (!d->map[(int)(d->eye.pos.x + d->eye.dir.y * SPEED)][(int)d->eye.pos.y])
+		d->eye.pos.x += d->eye.dir.y * SPEED;
+	if (!d->map[(int)d->eye.pos.x][(int)(d->eye.pos.y - d->eye.dir.x * SPEED)])
+		d->eye.pos.y -= d->eye.dir.x * SPEED;
 	return (0);
 }
 

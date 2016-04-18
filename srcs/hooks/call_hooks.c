@@ -14,7 +14,7 @@
 
 static void				key_esc(void)
 {
-	ft_printf("ESC pressed:\nEXIT SUCCESS");
+	ft_printf("ESC pressed:\nEXIT SUCCESS\n");
 	exit(0);
 }
 
