@@ -48,7 +48,6 @@ static void				get_color(t_data *d, t_calcul *c, t_vec3i *v)
 	draw_floor(d, c, v);
 }
 
-
 void					draw(t_data *data)
 {
 	t_ray				ray;

@@ -30,29 +30,19 @@ static int				move_bw(t_data *d)
 	return (0);
 }
 
-/*
-** BONUS
-*/
-/*static int			straf_rg(t_data *data)
+static int			straf_rg(t_data *d)
 {
-	if (//nowall)
-	{
-		data->eye.x += ;
-		data->eye.y += ;
-	}
+	d->eye.pos.x -= d->eye.dir.y * SPEED;
+	d->eye.pos.y += d->eye.dir.x * SPEED;
 	return (0);
 }
 
-static int				straf_lf(t_data *data)
+static int				straf_lf(t_data *d)
 {
-	if (//nowall)
-	{
-		data->eye.x += ;
-		data->eye.y += ;
-	}
+	d->eye.pos.x += d->eye.dir.y * SPEED;
+	d->eye.pos.y -= d->eye.dir.x * SPEED;
 	return (0);
 }
-*/
 
 int						move_hook(int key, t_data *data)
 {
@@ -60,9 +50,9 @@ int						move_hook(int key, t_data *data)
 		move_fw(data);
 	else if (key == S_KEY)
 		move_bw(data);
-	// else if (key == D_KEY)
-	// 	straf_rg(data);
-	// else if (key == A_KEY)
-	// 	straf_lf(data);
+	else if (key == D_KEY)
+		straf_rg(data);
+	else if (key == A_KEY)
+		straf_lf(data);
 	return (0);
 }

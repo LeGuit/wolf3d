@@ -18,14 +18,20 @@ static void				key_esc(void)
 	exit(0);
 }
 
-// int						hover_hook(int x, int y, t_data *data)
+// int						key_pressed(int key, t_data *data)
 // {
-// 	return (0);
+// 	data->flag = 1;
+// 	key_hook(key, data);
+// }
+
+// int						key_released(int key, t_data *data)
+// {
+// 	data->flag = 0;
+// 	key_hook(key, data);
 // }
 
 int						key_hook(int key, t_data *data)
 {
-	(void)data;
 	if (key == ESC)
 		key_esc();
 	else if (key == W_KEY || key == A_KEY || key == D_KEY || key == S_KEY)
