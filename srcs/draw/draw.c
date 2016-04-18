@@ -35,12 +35,13 @@ static void				draw_sky(t_data *d, t_calcul *c, t_vec3i *v)
 	}
 }
 
-static void				get_color(t_data *d, t_calcul *c, t_vec3i *v)
+static void				get_color(t_data *d, t_calcul *c, t_ray *r,
+						t_vec3i *v)
 {
 	if (c->hitside == 1)
-		v->z = WEST;
+		r->raydir.y > 0 ? (v->z = WEST) : (v->z = EST);
 	else
-		v->z = NORTH;
+		r->raydir.x > 0 ? (v->z = NORTH) : (v->z = SOUTH);
 	v->y = c->dstart;
 	while (v->y < c->dend)
 	{
@@ -66,7 +67,7 @@ void					draw(t_data *data)
 		dda(&calcul, data);
 		get_normedist(&calcul, &ray);
 		get_draw(&calcul);
-		get_color(data, &calcul, &v);
+		get_color(data, &calcul, &ray, &v);
 		v.x++;
 	}
 	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
