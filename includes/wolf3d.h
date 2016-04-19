@@ -29,10 +29,13 @@
 # define A_KEY			0
 # define W_KEY			13
 # define S_KEY			1
-# define PLUS			69
-# define MINUS			78
-# define RETURN			36
 
+# define A_SET			(1u << 0)
+# define W_SET			(1u << 1)
+# define D_SET			(1u << 2)
+# define S_SET			(1u << 3)
+# define RIGHT_SET		(1u << 4)
+# define LEFT_SET		(1u << 5)
 /*
 ** WALL COLORS
 */
