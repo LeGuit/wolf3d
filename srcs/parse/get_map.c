@@ -69,7 +69,7 @@ static int				check_line(char *line, t_data *d)
 	return (0);
 }
 
-static void				malloc_map(t_data *d, int ncol)
+void					malloc_map(t_data *d, int ncol)
 {
 	int					it;
 
@@ -94,7 +94,8 @@ void					get_map(char *av, t_data *d)
 	int					ret;
 
 	if ((fd = open(av, O_RDONLY)) == -1)
-		error_open();
+		rand_map(av, d);
+		// error_open();
 	while ((ret = get_next_line(fd, &line) > 0))
 	{
 		if (d->nrow == 0)

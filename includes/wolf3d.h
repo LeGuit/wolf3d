@@ -102,12 +102,12 @@ typedef struct			s_data
 	t_mlx				*mlx;
 	int					nrow;
 	int					ncol;
-	int					texture[6];
 	int					flag;
 }						t_data;
 
 void					get_map(char *av, t_data *data);
-
+void					rand_map(char *av, t_data *d);
+void					malloc_map(t_data *d, int ncol);
 /*
 ** HOOKS
 */

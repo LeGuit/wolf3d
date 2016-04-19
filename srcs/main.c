@@ -11,29 +11,41 @@
 /* ************************************************************************** */
 
 #include "wolf3d.h"
-
-static void				init_texture(t_data *d)
+#include <stdio.h>
+static void				get_start(t_data *d)
 {
-	d->texture[0] = NORTH;
-	d->texture[1] = SOUTH;
-	d->texture[2] = EST;
-	d->texture[3] = WEST;
-	// d->texture[4] = FLOOR;
-	// d->texture[5] = SKY;
+	int					i;
+	int					j;
+
+	d->eye.dir.x = 1;
+	d->eye.dir.y = 0;
+	d->eye.plane.x = 0;
+	d->eye.plane.y = 0.66;
+	i = 1;
+	while (i < d->ncol)
+	{
+		j = 1;
+		while (j < d->ncol)
+		{
+			ft_printf("i: %d j: %d map: %d\n", i, j, d->map[i][j]);
+			if (d->map[i][j] == 0)
+			{
+				d->eye.pos.x = (double)i;
+				d->eye.pos.y = (double)j;
+				printf("x: %f y: %f\n", d->eye.pos.x, d->eye.pos.y);
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 static void				init_data(t_data *d)
 {
-	d->eye.pos.x = 22;
-	d->eye.pos.y = 12;
-	d->eye.dir.x = -1;
-	d->eye.dir.y = 0;
-	d->eye.plane.x = 0;
-	d->eye.plane.y = 0.66;
 	d->ncol = 0;
 	d->nrow = 0;
 	d->flag = 0;
-	init_texture(d);
 }
 
 int						main(int ac, char **av)
@@ -44,6 +56,7 @@ int						main(int ac, char **av)
 		error_input();
 	init_data(&data);
 	get_map(av[1], &data);
+	get_start(&data);
 	mlx_start(&data);
 	return (0);
 }
