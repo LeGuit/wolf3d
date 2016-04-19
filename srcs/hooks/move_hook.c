@@ -30,7 +30,7 @@ static int				move_bw(t_data *d)
 	return (0);
 }
 
-static int			straf_lf(t_data *d)
+static int				straf_lf(t_data *d)
 {
 	if (!d->map[(int)(d->eye.pos.x - d->eye.dir.y * SPEED)][(int)d->eye.pos.y])
 		d->eye.pos.x -= d->eye.dir.y * SPEED;

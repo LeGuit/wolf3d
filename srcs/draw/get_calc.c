@@ -12,7 +12,7 @@
 
 #include "wolf3d.h"
 #include "math.h"
-#include <stdio.h>
+
 void					get_ray(int x, t_ray *r, t_data *d)
 {
 	r->camera = 2 * (double)x / (double)W_WIDTH - 1;
@@ -20,7 +20,6 @@ void					get_ray(int x, t_ray *r, t_data *d)
 	r->raypos.y = d->eye.pos.y;
 	r->raydir.x = d->eye.dir.x + d->eye.plane.x * r->camera;
 	r->raydir.y = d->eye.dir.y + d->eye.plane.y * r->camera;
-	// printf("rayx: %f, rayy: %f\n",r->raydir.x, r->raydir.y);
 }
 
 void					get_calcul(t_calcul *c, t_ray *r)

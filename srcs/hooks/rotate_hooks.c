@@ -41,7 +41,6 @@ static int				rot_rg(t_data *d)
 	return (0);
 }
 
-
 int						rot_hook(int key, t_data *data)
 {
 	if (key == LEFT_A)

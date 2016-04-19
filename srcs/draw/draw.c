@@ -39,9 +39,9 @@ static void				get_color(t_data *d, t_calcul *c, t_ray *r,
 						t_vec3i *v)
 {
 	if (c->hitside == 1)
-		r->raydir.y > 0 ? (v->z = WEST) : (v->z = EST);
+		v->z = r->raydir.y > 0 ? WEST : EST;
 	else
-		r->raydir.x > 0 ? (v->z = NORTH) : (v->z = SOUTH);
+		v->z = r->raydir.x > 0 ? NORTH : SOUTH;
 	v->y = c->dstart;
 	while (v->y < c->dend)
 	{
