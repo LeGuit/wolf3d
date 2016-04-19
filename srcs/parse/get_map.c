@@ -69,17 +69,17 @@ static int				check_line(char *line, t_data *d)
 	return (0);
 }
 
-static void				malloc_map(t_data *d)
+static void				malloc_map(t_data *d, int ncol)
 {
 	int					it;
 
-	d->map = (int **)malloc(sizeof(int *) * d->ncol);
+	d->map = (int **)malloc(sizeof(int *) * ncol);
 	if (!d->map)
 		error_malloc();
 	it = 0;
-	while (it < d->ncol)
+	while (it < ncol)
 	{
-		d->map[it] = (int *)malloc(sizeof(int) * d->ncol);
+		d->map[it] = (int *)malloc(sizeof(int) * ncol);
 		if (!d->map[it])
 			error_malloc();
 		it++;
@@ -100,7 +100,7 @@ void					get_map(char *av, t_data *d)
 		if (d->nrow == 0)
 			d->ncol = ft_nb_words(line, ' ');
 		if (d->flag == 0)
-			malloc_map(d);
+			malloc_map(d, d->ncol);
 		if ((ret = check_line(line, d)))
 			error_file(ret);
 		get_nbrs(line, d);
