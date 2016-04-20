@@ -118,6 +118,7 @@ int						key_hook(int key, t_data *data);
 // int						mouse_hook(int button, int x, int y, void *data);
 int						rot_hook(int key, t_data *data);
 int						move_hook(int key, t_data *data);
+void					minimap(t_data *d);
 /*
 ** MLX
 */

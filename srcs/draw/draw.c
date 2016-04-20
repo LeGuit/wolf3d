@@ -70,6 +70,7 @@ void					draw(t_data *data)
 		get_color(data, &calcul, &ray, &v);
 		v.x++;
 	}
+	minimap(data);
 	mlx_put_image_to_window(data->mlx->mlx_ptr, data->mlx->win_ptr,
 				data->mlx->screen.ptr, 0, 0);
 }

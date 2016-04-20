@@ -45,7 +45,7 @@ static void				get_start(t_data *d)
 	d->eye.plane.x = 0;
 	d->eye.plane.y = 0.66;
 	i = 1;
-	while (i < d->ncol)
+	while (i < d->nrow)
 	{
 		j = 1;
 		while (j < d->ncol)

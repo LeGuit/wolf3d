@@ -19,29 +19,6 @@ static void				key_esc(void)
 	exit(0);
 }
 
-// int						key_pressed(int key, t_data *data)
-// {
-// 	if (key == A_KEY)
-// 		flag |= A_SET;
-// 	else if (key == D_KEY)
-// 		flag |= D_SET;
-// 	else if (key == S_KEY)
-// 		flag |= S_SET;
-// 	else if (key == W_KEY)
-// 		flag |= W_S;
-// 	else if (key == LEFT_KEY)
-// 		flag |= S_KEY;
-// 	else if (key == S_KEY)
-// 		flag |= S_KEY;
-
-// }
-
-// int						key_released(int key, t_data *data)
-// {
-// 	data->flag = 0;
-// 	key_hook(key, data);
-// }
-
 int						key_hook(int key, t_data *d)
 {
 	if (key == ESC)
@@ -56,7 +33,6 @@ int						key_hook(int key, t_data *d)
 			d->minimapflag = 1;
 		else if (d->minimapflag == 1)
 			d->minimapflag = 0;
-		minimap(d);
 	}
 	return (0);
 }
