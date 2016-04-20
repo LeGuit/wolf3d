@@ -19,7 +19,7 @@ void					rand_map(char *av, t_data *d)
 	int					i;
 	int					j;
 	int					randnum;
-			
+
 	srand(time(NULL));
 	d->ncol = ft_atoi(av);
 	d->nrow = d->ncol;

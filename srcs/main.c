@@ -31,7 +31,6 @@ static void				correct_map(t_data *d)
 		d->map[0][j] = 1;
 		d->map[d->nrow - 1][j] = 1;
 		j++;
-
 	}
 }
 
@@ -79,7 +78,6 @@ int						main(int ac, char **av)
 	init_data(&data);
 	get_map(av[1], &data);
 	correct_map(&data);
-	print_map(&data);
 	get_start(&data);
 	mlx_start(&data);
 	return (0);

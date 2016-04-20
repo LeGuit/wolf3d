@@ -27,15 +27,12 @@ static void				draw_square(t_vec3i *v, t_data *d)
 		while (j < SCALE)
 		{
 			tmp = (t_vec3i){20 + v->x * SCALE + i, 20 + v->y * SCALE + j, v->z};
-
 			ft_put_pix_to_img(&tmp, &d->mlx->screen);
 			j++;
 		}
 		i++;
 	}
 }
-
-
 
 static void				draw_minimap(t_data *d)
 {

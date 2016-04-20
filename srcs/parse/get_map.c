@@ -13,7 +13,7 @@
 #include "wolf3d.h"
 #include <fcntl.h>
 
-static void 			read_map_info(int fd, t_data *d)
+static void				read_map_info(int fd, t_data *d)
 {
 	char				*line;
 

@@ -41,9 +41,7 @@ void					mlx_start(t_data *data)
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, W_WIDTH, W_HEIGHT, "wolf3d");
 	ft_mlx_image_init(mlx.mlx_ptr, &mlx.screen, W_WIDTH, W_HEIGHT);
 	mlx_hook(mlx.win_ptr, 2, 3, key_hook, data);
-	// mlx_mouse_hook(mlx.win_ptr, mouse_hook, data);
 	mlx_expose_hook(mlx.win_ptr, wolf_loop, data);
-	// mlx_hook(mlx.win_ptr, 2, 3, hover_hook, data);
 	mlx_loop_hook(mlx.mlx_ptr, wolf_loop, data);
 	mlx_loop(mlx.mlx_ptr);
 }

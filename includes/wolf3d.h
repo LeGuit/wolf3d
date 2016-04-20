@@ -36,6 +36,7 @@
 # define S_SET			(1u << 3)
 # define RIGHT_SET		(1u << 4)
 # define LEFT_SET		(1u << 5)
+
 /*
 ** WALL COLORS
 */
@@ -113,9 +114,7 @@ void					print_map(t_data *d);
 /*
 ** HOOKS
 */
-// int						hover_hook(int x, int y, t_data *data);
 int						key_hook(int key, t_data *data);
-// int						mouse_hook(int button, int x, int y, void *data);
 int						rot_hook(int key, t_data *data);
 int						move_hook(int key, t_data *data);
 void					minimap(t_data *d);
