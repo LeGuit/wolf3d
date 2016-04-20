@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+#include <stdio.h>
 
 static void				key_esc(void)
 {
@@ -41,13 +42,21 @@ static void				key_esc(void)
 // 	key_hook(key, data);
 // }
 
-int						key_hook(int key, t_data *data)
+int						key_hook(int key, t_data *d)
 {
 	if (key == ESC)
 		key_esc();
 	else if (key == W_KEY || key == A_KEY || key == D_KEY || key == S_KEY)
-		move_hook(key, data);
-	else if (key == LEFT_A || key == RIGHT_A || key == UP_A || key == DOWN_A)
-		rot_hook(key, data);
+		move_hook(key, d);
+	else if (key == LEFT_A || key == RIGHT_A)
+		rot_hook(key, d);
+	if (key == UP_A)
+	{
+		if (d->minimapflag == 0)
+			d->minimapflag = 1;
+		else if (d->minimapflag == 1)
+			d->minimapflag = 0;
+		minimap(d);
+	}
 	return (0);
 }

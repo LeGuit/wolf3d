@@ -32,8 +32,10 @@ LIST =	main \
 		draw/get_calc \
 		parse/get_map \
 		parse/rand_map \
+		misc/print \
 		hooks/call_hooks \
 		hooks/move_hook \
+		hooks/minimap \
 		hooks/rotate_hooks 		
 
 SRCS := $(addprefix $(SRCS_DIR)/, $(addsuffix .c, $(LIST)))

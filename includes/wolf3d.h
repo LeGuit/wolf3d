@@ -18,7 +18,7 @@
 # define W_WIDTH		1600
 # define W_HEIGHT		1200
 # define SPEED			0.2
-
+# define DENSITY		15
 
 # define ESC			53
 # define LEFT_A			123
@@ -103,11 +103,13 @@ typedef struct			s_data
 	int					nrow;
 	int					ncol;
 	int					flag;
+	int					minimapflag;
 }						t_data;
 
 void					get_map(char *av, t_data *data);
 void					rand_map(char *av, t_data *d);
-void					malloc_map(t_data *d, int ncol);
+void					malloc_map(t_data *d, int ncol, int nrow);
+void					print_map(t_data *d);
 /*
 ** HOOKS
 */

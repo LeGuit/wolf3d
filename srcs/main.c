@@ -12,12 +12,35 @@
 
 #include "wolf3d.h"
 #include <stdio.h>
+
+static void				correct_map(t_data *d)
+{
+	int					i;
+	int					j;
+
+	i = 0;
+	while (i < d->nrow)
+	{
+		d->map[i][0] = 1;
+		d->map[i][d->ncol - 1] = 1;
+		i++;
+	}
+	j = 0;
+	while (j < d->ncol)
+	{
+		d->map[0][j] = 1;
+		d->map[d->nrow - 1][j] = 1;
+		j++;
+
+	}
+}
+
 static void				get_start(t_data *d)
 {
 	int					i;
 	int					j;
 
-	d->eye.dir.x = 1;
+	d->eye.dir.x = -1;
 	d->eye.dir.y = 0;
 	d->eye.plane.x = 0;
 	d->eye.plane.y = 0.66;
@@ -27,12 +50,10 @@ static void				get_start(t_data *d)
 		j = 1;
 		while (j < d->ncol)
 		{
-			ft_printf("i: %d j: %d map: %d\n", i, j, d->map[i][j]);
 			if (d->map[i][j] == 0)
 			{
-				d->eye.pos.x = (double)i;
-				d->eye.pos.y = (double)j;
-				printf("x: %f y: %f\n", d->eye.pos.x, d->eye.pos.y);
+				d->eye.pos.x = j + 0.5;
+				d->eye.pos.y = i + 0.5;
 				return ;
 			}
 			j++;
@@ -46,6 +67,7 @@ static void				init_data(t_data *d)
 	d->ncol = 0;
 	d->nrow = 0;
 	d->flag = 0;
+	d->minimapflag = 0;
 }
 
 int						main(int ac, char **av)
@@ -56,6 +78,8 @@ int						main(int ac, char **av)
 		error_input();
 	init_data(&data);
 	get_map(av[1], &data);
+	correct_map(&data);
+	print_map(&data);
 	get_start(&data);
 	mlx_start(&data);
 	return (0);

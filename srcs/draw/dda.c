@@ -28,9 +28,9 @@ void					dda(t_calcul *c, t_data *d)
 			c->map.y += c->step.y;
 			c->hitside = 1;
 		}
-		if (d->map[c->map.x][c->map.y] > 0 || c->map.x == 0
-			|| c->map.x == d->ncol - 1 || c->map.y == d->nrow - 1
-			|| c->map.y == 0)
+		if (d->map[c->map.x][c->map.y] > 0
+			|| c->map.x == 0 || c->map.x == d->ncol - 1
+			|| c->map.y == d->nrow - 1 || c->map.y == 0)
 			c->hit = 1;
 	}
 }
