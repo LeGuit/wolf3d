@@ -59,6 +59,7 @@ static void				get_start(t_data *d)
 		}
 		i++;
 	}
+	error_file(3);
 }
 
 static void				init_data(t_data *d)

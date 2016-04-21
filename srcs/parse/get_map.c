@@ -17,7 +17,8 @@ static void				read_map_info(int fd, t_data *d)
 {
 	char				*line;
 
-	get_next_line(fd, &line);
+	if (get_next_line(fd, &line) <= 0)
+		error_file(4);
 	d->nrow = ft_atoi(line);
 	d->ncol = ft_atoi(ft_strchr(line, ' '));
 	free(line);

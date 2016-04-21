@@ -29,6 +29,7 @@
 # define A_KEY			0
 # define W_KEY			13
 # define S_KEY			1
+# define TAB_KEY		48
 
 # define A_SET			(1u << 0)
 # define W_SET			(1u << 1)

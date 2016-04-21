@@ -15,22 +15,26 @@
 void					error_input(void)
 {
 	ft_putendl_fd("./wolf3d: Wrong input", 2);
-	ft_putendl_fd("usage: ./wolf3d 'map' OR '%'", 2);
+	ft_putendl_fd("usage: ./wolf3d 'map' OR 'size != 0'", 2);
 	exit(0);
 }
 
 void					error_open(void)
 {
-	ft_putendl_fd("fdf: open fail!", 2);
+	ft_putendl_fd("./wolf3d: open fail!", 2);
 	exit(0);
 }
 
 void					error_file(int error)
 {
 	if (error == 2)
-		ft_putendl_fd("fdf: nbcol/nrow are not the same!", 2);
+		ft_putendl_fd("./wolf3d: nbcol/nrow are not the same!", 2);
 	else if (error == 1)
-		ft_putendl_fd("fdf: wrong char in the file!", 2);
+		ft_putendl_fd("./wolf3d: wrong char in the file!", 2);
+	else if (error == 3)
+		ft_putendl_fd("./wolf3d: No starting space available!", 2);
+	else if (error == 3)
+		ft_putendl_fd("./wolf3d: File is not valid!", 2);
 	exit(0);
 }
 

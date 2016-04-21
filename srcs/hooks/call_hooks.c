@@ -27,7 +27,7 @@ int						key_hook(int key, t_data *d)
 		move_hook(key, d);
 	else if (key == LEFT_A || key == RIGHT_A)
 		rot_hook(key, d);
-	if (key == UP_A)
+	if (key == TAB_KEY)
 	{
 		if (d->minimapflag == 0)
 			d->minimapflag = 1;
